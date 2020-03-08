@@ -1,3 +1,9 @@
+/*
+* Name: Evan Palmer
+* Student ID: 100699087
+* Date Completed: 3/8/2020
+*/
+
 class Contact
 {
     constructor(contactName = "", emailAddress = "", contactNumber = "", contactMessage = "")
@@ -102,7 +108,44 @@ let app;
 
         // Task 1 a
         $("#newTaskButton").on("click", function(){
+            let test = document.getElementById("test");
+            console.log(test);
+            let deleteButton = document.createElement("button");
+            let editButton = document.createElement("button");
+            let deleteButtonPicture = document.createElement("i");
+            let editButtonPicture = document.createElement("i");
+            let newLi = window.document.createElement("li"); //Create new list item
+            let text = document.createElement("span");
+            let floatRight = document.createElement("span");
+            let listGroup = document.getElementById("taskList"); //Reference the list
+            let taskName = document.getElementById("taskTextInput").value;
+            text.className = "list-group-item";
+            text.textContent = taskName;
+            newLi.appendChild(text);
+
+
+            floatRight.className = "float-right";
+            editButton.className = "btn btn-outline-primary btn-sm editButton";
+            deleteButton.className = "btn btn-outline-danger btn-sm deleteButton";
+            editButtonPicture.className = "fas fa-edit";
+            deleteButtonPicture.className = "fas fa-trash-alt";
+            newLi.className = "list-group-item";
+
+            deleteButton.appendChild(deleteButtonPicture);
+            editButton.appendChild(editButtonPicture);
+            floatRight.appendChild(editButton);
+            floatRight.appendChild(deleteButton);
+            newLi.appendChild(floatRight);
             
+            let input = document.createElement("input");
+            input.type = "text";
+            input.className = "form-control edit-task editTextInput";
+
+
+            console.log(newLi);
+            listGroup.appendChild(newLi);
+            input.display = "block";
+
         });
 
         // Task 1 b
