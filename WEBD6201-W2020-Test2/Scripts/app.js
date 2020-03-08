@@ -108,7 +108,8 @@ let app;
 
         // Task 1 a
         $("#newTaskButton").on("click", function(){
-            let test = document.getElementById("test");
+            //Create and reference the new elements
+            let test = document.getElementById("test"); 
             console.log(test);
             let deleteButton = document.createElement("button");
             let editButton = document.createElement("button");
@@ -123,7 +124,7 @@ let app;
             text.textContent = taskName;
             newLi.appendChild(text);
 
-
+            //Set the class names of the new elements
             floatRight.className = "float-right";
             editButton.className = "btn btn-outline-primary btn-sm editButton";
             deleteButton.className = "btn btn-outline-danger btn-sm deleteButton";
@@ -131,15 +132,14 @@ let app;
             deleteButtonPicture.className = "fas fa-trash-alt";
             newLi.className = "list-group-item";
 
+            //Append all of the new elements
             deleteButton.appendChild(deleteButtonPicture);
             editButton.appendChild(editButtonPicture);
             floatRight.appendChild(editButton);
             floatRight.appendChild(deleteButton);
             newLi.appendChild(floatRight);
             
-            let input = document.createElement("input");
-            input.type = "text";
-            input.className = "form-control edit-task editTextInput";
+
 
 
             console.log(newLi);
@@ -150,7 +150,13 @@ let app;
 
         // Task 1 b
         $("ul").on("click", ".editButton", function(){
-           
+            let input = document.createElement("input");
+            input.type = "text";
+            input.className = "form-control edit-task editTextInput";
+
+            let parent = $(this).parent().parent();
+            parent.append(input);
+           console.log(parent);
         });
 
         // Task 1 c
